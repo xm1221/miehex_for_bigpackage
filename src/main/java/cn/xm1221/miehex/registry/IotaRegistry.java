@@ -3,6 +3,7 @@ package cn.xm1221.miehex.registry;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import cn.xm1221.miehex.MieHexMod;
 import cn.xm1221.miehex.iota.EnchantIotaType;
+import cn.xm1221.miehex.iota.FunctionIotaType;
 import cn.xm1221.miehex.iota.IdeaIotaType;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -20,5 +21,10 @@ public class IotaRegistry {
                 IdeaIotaType.INSTANCE
         );
         // 在此添加更多 Iota 类型
+        Registry.register(
+                HexIotaTypes.REGISTRY,
+                new ResourceLocation(MieHexMod.MOD_ID,"function"),
+                FunctionIotaType.INSTANCE
+        );
     }
 }
