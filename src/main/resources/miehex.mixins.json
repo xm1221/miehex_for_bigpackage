@@ -3,7 +3,7 @@
 	"package": "cn.xm1221.miehex.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"LivingEntityAttributeMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -24,11 +24,11 @@ public class EnchantIotaType extends IotaType<EnchantIota> {
     @Override
     public Component display(Tag tag) {
         CompoundTag ct = (CompoundTag) tag;
-        String id = ct.getString("id");
+        String id = ct.getString("id").split(":")[1];
         short lvl = ct.getShort("lvl");
-        String raw = (id + " ,level:" + lvl).toUpperCase();
+        String raw = (id +" level: "+ lvl).toUpperCase();
         String sga = SgaUtils.toStandardGalactic(raw);
-        return Component.literal(sga).withStyle(ChatFormatting.BLUE);
+        return Component.literal(sga).withStyle(ChatFormatting.GRAY);
     }
 
     @Override
