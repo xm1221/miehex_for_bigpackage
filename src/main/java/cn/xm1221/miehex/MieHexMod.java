@@ -1,5 +1,6 @@
 package cn.xm1221.miehex;
 
+import cn.xm1221.miehex.registry.ActionRegisry;
 import cn.xm1221.miehex.registry.IotaRegistry;
 import cn.xm1221.miehex.registry.MieHexAttributes;
 import net.fabricmc.api.ModInitializer;
@@ -12,6 +13,7 @@ public class MieHexMod implements ModInitializer {
 	public void onInitialize() {
 		IotaRegistry.init();
 		MieHexAttributes.register();
+		ActionRegisry.init();
 
 	}
 

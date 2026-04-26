@@ -3,13 +3,13 @@
 	"id": "miehex",
 	"version": "${version}",
 	"name": "miehex",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "",
 	"authors": [
 		"xm1221"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "",
+		"sources": ""
 	},
 	"license": "MIT",
 	"icon": "assets/miehex/icon.png",

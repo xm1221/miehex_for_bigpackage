@@ -1,6 +1,7 @@
 plugins {
 	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
 	id 'maven-publish'
+	id 'org.jetbrains.kotlin.jvm'
 }
 
 version = project.mod_version
@@ -53,6 +54,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation("at.petra-k.hexcasting:hexcasting-fabric-${project.minecraft_version}:${project.hexcasting_version}") { transitive = false }
 	modImplementation "io.yukkuric.hexautomata:HexAutomata-fabric-1.20.3.2-0.3.2"
+	implementation fileTree(dir: "libs", include: '*.jar')
+	compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 processResources {
@@ -102,3 +105,9 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
