@@ -38,7 +38,7 @@ class OpIdeaSummon: SpellAction {
             val list = mutableListOf(idea.maxHealth,idea.movementSpeed,idea.attackDamage,idea.armor)
             val Etype = EntityType.byString(idea.entityTypeId).orElse(null) ?: throw MishapInvalidIota.of(
                 idea,
-                1,
+                2,
                 "class.bad_idea"
             )
             var entity : Entity? = Etype.create(env.world)
@@ -80,13 +80,13 @@ class OpIdeaSummon: SpellAction {
                             1
                         )
                     }
-                    throw MishapInvalidIota.of(idea,1,"class.idea")
+                    throw MishapInvalidIota.of(idea,2,"class.idea")
                 }
-                throw MishapInvalidIota.of(idea,1,"class.bad_idea")
+                throw MishapInvalidIota.of(idea,2,"class.bad_idea")
             }
-            throw MishapInvalidIota.of(idea,1,"class.idea")
+            throw MishapInvalidIota.of(idea,2,"class.idea")
         }
-        throw MishapInvalidIota.of(idea,1,"class.idea")
+        throw MishapInvalidIota.of(idea,2,"class.idea")
 
     }
 }

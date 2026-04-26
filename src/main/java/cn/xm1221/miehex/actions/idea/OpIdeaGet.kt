@@ -22,7 +22,10 @@ class OpIdeaGet : ConstMediaAction {
         val entity=args.getLivingEntityButNotArmorStand(1,argc)
         val idea = args[0]
         val eIdea=PushUtils.EMPTY_IDEA
-        if(idea == eIdea) {
+        if(idea is IdeaIota) {
+            if(idea.entityTypeId != eIdea.entityTypeId) {
+                throw MishapInvalidIota.of(idea,1,"class.empty_idea")
+            }
             val id = env.world.registryAccess().registryOrThrow(Registries.ENTITY_TYPE).getKey(entity.type).toString()
             var maxHealth = 0.0
             var speed =0.0
