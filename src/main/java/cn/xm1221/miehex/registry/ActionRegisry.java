@@ -5,7 +5,9 @@ import cn.xm1221.miehex.actions.idea.OpIdeaGet;
 import cn.xm1221.miehex.actions.idea.OpIdeaModify;
 import cn.xm1221.miehex.actions.idea.OpIdeaSummon;
 import cn.xm1221.miehex.actions.meta.OpBraveEval;
+import cn.xm1221.miehex.actions.meta.OpEvolution;
 import cn.xm1221.miehex.actions.stack.OpPush;
+import cn.xm1221.miehex.actions.stack.OpThrust;
 import cn.xm1221.miehex.api.ActionRegistryHelper;
 import cn.xm1221.miehex.util.PushUtils;
 
@@ -21,5 +23,8 @@ public class ActionRegisry {
         ActionRegistryHelper.register("idea_modify","wewedwaqdeeaqqwqw",HexDir.NORTH_WEST,new OpIdeaModify());
         ActionRegistryHelper.register("summon_idea_entity","wqwqawdeaqqdeewew",HexDir.NORTH_EAST,new OpIdeaSummon());
         ActionRegistryHelper.register("brave_eval","deaqqw",HexDir.SOUTH_EAST,new OpBraveEval());
+        ActionRegistryHelper.register("easy_thrust","wawaqw", HexDir.SOUTH_EAST, new OpThrust(false));
+        ActionRegistryHelper.register("easy_extract","wedwdw", HexDir.SOUTH_WEST, new OpThrust(true));
+        ActionRegistryHelper.register("evolution","dadawaaw",HexDir.NORTH_EAST,new OpEvolution());
     }
 }
