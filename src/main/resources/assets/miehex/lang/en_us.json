@@ -39,5 +39,14 @@
   "hexcasting.action.miehex:brave_eval": "Hermes'Courage",
   "hexcasting.action.miehex:evolution": "Evolution Strategy",
   "miehex.advice.brave_eval": "",
-  "miehex.advice.evolution": ""
+  "miehex.advice.evolution": "",
+
+  "miehex.catch.mishap": "Caught Mishap",
+  "miehex.tooltip.throw": "Throw:",
+  "hexcasting.mishap.broken": "Broken Mishap",
+  "hexcasting.action.miehex:catch": "Hephaestus's Gambit",
+  "hexcasting.action.miehex:throw": "Apollo's Gambit",
+  "miehex.entry.miehex_meta.desc": "The deeper my understanding of meta-evaluation grows, the clearer the mechanisms of hex casting become. I can now catch a mishap when a pattern fails, preventing nature from disrupting my casting, and encapsulate that mishap into a so-called Mishap Iota. Only when I execute it again will the mishap be thrown. When a Mishap Iota is revealed, focusing on it will display detailed information about the mishap. However, under certain circumstances, a Mishap Iota will decay—it can still interrupt casting, but all other side effects will vanish.",
+  "miehex.advice.catch": "Removes the topmost evaluatable iota from the stack. If a mishap is thrown during its execution, the pattern immediately breaks out of that evaluation and pushes the resulting Mishap Iota onto the top of the stack.",
+  "miehex.advice.throw": "Throws a given iota as a mishap. If the mishap is caught, that iota is pushed onto the top of the stack."
 }

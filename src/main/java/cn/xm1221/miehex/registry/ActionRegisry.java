@@ -1,19 +1,24 @@
 package cn.xm1221.miehex.registry;
 
 import at.petrak.hexcasting.api.casting.math.HexDir;
+import at.petrak.hexcasting.api.casting.mishaps.MishapBadCaster;
 import cn.xm1221.miehex.actions.idea.OpIdeaGet;
 import cn.xm1221.miehex.actions.idea.OpIdeaModify;
 import cn.xm1221.miehex.actions.idea.OpIdeaSummon;
 import cn.xm1221.miehex.actions.meta.OpBraveEval;
+import cn.xm1221.miehex.actions.meta.OpCatch;
 import cn.xm1221.miehex.actions.meta.OpEvolution;
+import cn.xm1221.miehex.actions.meta.OpThrow;
 import cn.xm1221.miehex.actions.stack.OpPush;
 import cn.xm1221.miehex.actions.stack.OpThrust;
 import cn.xm1221.miehex.api.ActionRegistryHelper;
+import cn.xm1221.miehex.iota.MishapIota;
 import cn.xm1221.miehex.util.PushUtils;
+import net.minecraft.network.chat.Component;
 
 public class ActionRegisry {
     public static void init(){
-        //ActionRegistryHelper.register("test","adaw", HexDir.SOUTH_EAST, new OpTest());
+        //ActionRegistryHelper.register("test","adaw", HexDir.SOUTH_EAST, new OpPush(new MishapIota(new MishapBadCaster(), Component.empty()),0));
         ActionRegistryHelper.register("quine","qqqqqeawqwqwqwqwqwwded", HexDir.EAST, new OpPush(PushUtils.QUNIE,0));
         //ActionRegistryHelper.register("get_enchant","awaeqwawq",HexDir.NORTH_EAST,new OpEnchantGet());
         //ActionRegistryHelper.register("enchant_add","qawwwwaqeeeaqwwqaee",HexDir.EAST, new OpAddEnchant());
@@ -26,5 +31,7 @@ public class ActionRegisry {
         ActionRegistryHelper.register("easy_thrust","wawaqw", HexDir.SOUTH_EAST, new OpThrust(false));
         ActionRegistryHelper.register("easy_extract","wedwdw", HexDir.SOUTH_WEST, new OpThrust(true));
         ActionRegistryHelper.register("evolution","dadawaaw",HexDir.NORTH_EAST,new OpEvolution());
+        ActionRegistryHelper.register("catch","deaq", HexDir.SOUTH_EAST, new OpCatch());
+        ActionRegistryHelper.register("throw","edqa",HexDir.SOUTH_EAST,new OpThrow());
     }
 }

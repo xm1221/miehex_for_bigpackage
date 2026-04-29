@@ -5,6 +5,7 @@ import cn.xm1221.miehex.MieHexMod;
 import cn.xm1221.miehex.iota.EnchantIotaType;
 import cn.xm1221.miehex.iota.FunctionIotaType;
 import cn.xm1221.miehex.iota.IdeaIotaType;
+import cn.xm1221.miehex.iota.MishapIotaType;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 
@@ -25,6 +26,12 @@ public class IotaRegistry {
                 HexIotaTypes.REGISTRY,
                 new ResourceLocation(MieHexMod.MOD_ID,"function"),
                 FunctionIotaType.INSTANCE
+        );
+
+        Registry.register(
+                HexIotaTypes.REGISTRY,
+                new ResourceLocation(MieHexMod.MOD_ID,"mishap"),
+                MishapIotaType.INSTANCE
         );
     }
 }

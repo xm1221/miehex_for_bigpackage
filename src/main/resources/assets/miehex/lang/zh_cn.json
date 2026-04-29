@@ -39,5 +39,14 @@
   "hexcasting.action.miehex:brave_eval": "赫尔墨斯之勇气",
   "hexcasting.action.miehex:evolution": "达尔文之策略",
   "miehex.advice.brave_eval": "像赫尔墨斯之策略那样执行图案列表，但是不会规定“卡戎之策略”的退出位置",
-  "miehex.advice.evolution": "对所给列表中的每一个元素执行所给列表中的操作，将结果依次置入一个新列表中，返回那个列表。"
+  "miehex.advice.evolution": "对所给列表中的每一个元素执行所给列表中的操作，将结果依次置入一个新列表中，返回那个列表。",
+
+  "miehex.catch.mishap": "捕获的事故",
+  "miehex.tooltip.throw": "抛出Iota：",
+  "hexcasting.mishap.broken": "损坏的事故",
+  "hexcasting.action.miehex:catch": "赫菲斯托斯之策略",
+  "hexcasting.action.miehex:throw": "阿波罗之策略",
+  "miehex.entry.miehex_meta.desc": "我对元运行的理解越发深刻，对咒术运行机理的认识也就越清楚，我甚至可以在图案运行错误时捕获那个事故，不让自然影响我的施法，并将这事故封装成所谓的事故Iota，当我再次执行它时，才会把那事故抛出。当事故Iota被揭示时，如果把注意力集中在它身上，还会显示事故的详细信息。不过，在一些特定的情况下，事故Iota会衰变，它依然能够打断施法。但是其他副作用却会消失。",
+  "miehex.advice.catch": "移除栈顶的一个可执行iota，如果中途抛出事故，立刻跳出这个执行并把那个事故Iota压入栈顶",
+  "miehex.advice.throw": "把一个Iota当做事故抛出，如果这个事故被捕获，则把那个iota压入栈顶"
 }
