@@ -11,6 +11,8 @@ import cn.xm1221.miehex.actions.meta.OpEvolution;
 import cn.xm1221.miehex.actions.meta.OpThrow;
 import cn.xm1221.miehex.actions.stack.OpPush;
 import cn.xm1221.miehex.actions.stack.OpThrust;
+import cn.xm1221.miehex.actions.stack.mishapiota.OpMishapArgs;
+import cn.xm1221.miehex.actions.stack.type.OpTypes;
 import cn.xm1221.miehex.api.ActionRegistryHelper;
 import cn.xm1221.miehex.iota.MishapIota;
 import cn.xm1221.miehex.util.PushUtils;
@@ -33,5 +35,8 @@ public class ActionRegisry {
         ActionRegistryHelper.register("evolution","dadawaaw",HexDir.NORTH_EAST,new OpEvolution());
         ActionRegistryHelper.register("catch","deaq", HexDir.SOUTH_EAST, new OpCatch());
         ActionRegistryHelper.register("throw","edqa",HexDir.SOUTH_EAST,new OpThrow());
+        ActionRegistryHelper.register("type_iota","wqawdew",HexDir.NORTH_EAST,new OpTypes().getIotatype());
+        ActionRegistryHelper.register("mishap_type","waqedw",HexDir.NORTH_EAST,new OpTypes().getMishaptype());
+        ActionRegistryHelper.register("mishap_args","deeeew",HexDir.NORTH_EAST,new OpMishapArgs().getInvaldiota());
     }
 }
