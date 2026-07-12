@@ -2,6 +2,9 @@ package cn.xm1221.miehex.registry;
 
 import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadCaster;
+import cn.xm1221.miehex.actions.enchant.OpAddEnchant;
+import cn.xm1221.miehex.actions.enchant.OpEnchant;
+import cn.xm1221.miehex.actions.enchant.OpEnchantGet;
 import cn.xm1221.miehex.actions.idea.OpIdeaGet;
 import cn.xm1221.miehex.actions.idea.OpIdeaModify;
 import cn.xm1221.miehex.actions.idea.OpIdeaSummon;
@@ -22,9 +25,9 @@ public class ActionRegisry {
     public static void init(){
         //ActionRegistryHelper.register("test","adaw", HexDir.SOUTH_EAST, new OpPush(new MishapIota(new MishapBadCaster(), Component.empty()),0));
         ActionRegistryHelper.register("quine","qqqqqeawqwqwqwqwqwwded", HexDir.EAST, new OpPush(PushUtils.QUNIE,0));
-        //ActionRegistryHelper.register("get_enchant","awaeqwawq",HexDir.NORTH_EAST,new OpEnchantGet());
-        //ActionRegistryHelper.register("enchant_add","qawwwwaqeeeaqwwqaee",HexDir.EAST, new OpAddEnchant());
-        //ActionRegistryHelper.register("enchant","dwdqewdwe",HexDir.NORTH_WEST,new OpEnchant());
+        ActionRegistryHelper.register("get_enchant","awaeqwawq",HexDir.NORTH_EAST,new OpEnchantGet());
+        ActionRegistryHelper.register("enchant_add","qawwwwaqeeeaqwwqaee",HexDir.EAST, new OpAddEnchant());
+        ActionRegistryHelper.register("enchant","dwdqewdwe",HexDir.NORTH_WEST,new OpEnchant());
         ActionRegistryHelper.register("new_idea","qwqwqwqwqwq",HexDir.EAST,new OpPush(PushUtils.EMPTY_IDEA,0));
         ActionRegistryHelper.register("idea_get","qwwwdwewdwwwqwqwwwdwewdwwwqqqwe",HexDir.EAST,new OpIdeaGet());
         ActionRegistryHelper.register("idea_modify","wewedwaqdeeaqqwqw",HexDir.NORTH_WEST,new OpIdeaModify());
@@ -33,7 +36,7 @@ public class ActionRegisry {
         ActionRegistryHelper.register("easy_thrust","wawaqw", HexDir.SOUTH_EAST, new OpThrust(false));
         ActionRegistryHelper.register("easy_extract","wedwdw", HexDir.SOUTH_WEST, new OpThrust(true));
         ActionRegistryHelper.register("evolution","dadawaaw",HexDir.NORTH_EAST,new OpEvolution());
-        ActionRegistryHelper.register("catch","deaq", HexDir.SOUTH_EAST, new OpCatch());
+        ActionRegistryHelper.register("catch","deaqw", HexDir.SOUTH_EAST, new OpCatch());
         ActionRegistryHelper.register("throw","edqa",HexDir.SOUTH_EAST,new OpThrow());
         ActionRegistryHelper.register("type_iota","wqawdew",HexDir.NORTH_EAST,new OpTypes().getIotatype());
         ActionRegistryHelper.register("mishap_type","waqedw",HexDir.NORTH_EAST,new OpTypes().getMishaptype());
