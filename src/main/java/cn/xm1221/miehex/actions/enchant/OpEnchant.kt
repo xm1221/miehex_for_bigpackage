@@ -59,7 +59,7 @@ class OpEnchant : SpellAction {
                 override fun cast(env: CastingEnvironment) {
                     if(holder.value() != null){
                         val ench = holder.value()
-                        val map = mutableMapOf<Enchantment, Int>()
+                        val map = EnchantmentHelper.getEnchantments(stack)
                         map[ench] = level
                         EnchantmentHelper.setEnchantments(map,stack)
                     }
