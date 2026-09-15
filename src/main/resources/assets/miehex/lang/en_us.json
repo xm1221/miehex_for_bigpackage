@@ -1,5 +1,4 @@
 {
-
   "hexcasting.iota.miehex:enchant": "Enchantment",
   "miehex.entry.enchant": "Enchantment Iota",
   "miehex.entry.enchant.desc1": "I discovered that item enchantments can actually be abstracted to form Iotas. Using these Iotas, I can easily and conveniently use hexcraft to enchant items",
@@ -10,8 +9,7 @@
   "hexcasting.mishap.invalid_value.class.same_enchant": "Two identical enchant iotas",
   "hexcasting.action.miehex:get_enchant": "Enchanter Purification",
   "hexcasting.action.miehex:enchant": "Enchanter Strategy",
-  "hexcasting.action.miehex:enchant_add":"Enchant Add",
-
+  "hexcasting.action.miehex:enchant_add": "Enchant Add",
   "miehex.entry.idea": "Ideas",
   "miehex.entry.idea.desc": "The eternal templates of all things",
   "hexcasting.action.miehex:new_idea": "Plato Meditation",
@@ -25,7 +23,6 @@
   "miehex.advice.idea_get": "Consumes a small amount of media. Extracts base attributes (max health, speed, attack, armor) from the target entity into an empty idea.",
   "miehex.advice.idea_summon": "Summons a living entity at the target position based on the given idea, with attributes from the idea. Consumes (max health * 10 + speed * 1000 + attack * 100 + armor * 50) amethyst dust, minimum 1 charged amethyst.",
   "miehex.advice.idea_modify": "Consumes a small amount of media. Modifies one attribute of an idea. Indices 1~4 correspond to: max health, speed, attack, armor.",
-
   "miehex.entry.miehex_patterns": "MieHex Patterns",
   "miehex.entry.miehex_patterns.desc": "New patterns added by the MieHex",
   "miehex.advice.import_quine": "This pattern returns a special pattern list that remains itself after a Hermes Strategy, perhaps this will have some good use.",
@@ -34,13 +31,11 @@
   "hexcasting.action.miehex:quine": "Guardian Sequence Meditation",
   "hexcasting.action.miehex:easy_thrust": "Insertion Refinement",
   "hexcasting.action.miehex:easy_extract": "Extraction Strategy",
-
   "miehex.entry.miehex_meta": "MieHex Meta",
   "hexcasting.action.miehex:brave_eval": "Hermes'Courage",
   "hexcasting.action.miehex:evolution": "Evolution Strategy",
   "miehex.advice.brave_eval": "",
   "miehex.advice.evolution": "",
-
   "hexcasting.mishap.invalid_value.class.mishap": "Mishap",
   "miehex.entry.mishap": "Mishap Iota",
   "miehex.catch.mishap": "Caught Mishap",
@@ -56,5 +51,7 @@
   "hexcasting.action.miehex:mishap_args": "Rational Distillation",
   "miehex.advice.type_iota": "Reveals the type of the topmost iota, returning it as a TypeIota.",
   "miehex.advice.mishap_type": "Reveals the mishap type stored inside a Mishap Iota, also as a TypeIota. If the mishap has decayed, it will indicate a \"Broken Mishap\".",
-  "miehex.advice.mishap_args": "Extracts key parameters from a Mishap Iota: the invalid perpetrator, the number of missing arguments, the offending entity or location, etc. Returns Null if the mishap type is not supported."
+  "miehex.advice.mishap_args": "Extracts key parameters from a Mishap Iota: the invalid perpetrator, the number of missing arguments, the offending entity or location, etc. Returns Null if the mishap type is not supported.",
+  "hexdoc.miehex.title": "miehex",
+  "hexdoc.miehex.description": "miehex guide"
 }
