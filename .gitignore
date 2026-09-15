@@ -38,3 +38,13 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+
+# hexdoc
+_site/
+_checkout/
+__gradle_version__.py
+.hexdoc*/
+.env
+.venv/
+__pycache__/
+*.egg-info/
