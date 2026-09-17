@@ -1,6 +1,7 @@
 [build-system]
 requires = [
     "hatchling",
+    "hatch-gradle-version>=0.9.8",
 ]
 build-backend = "hatchling.build"
 
@@ -15,10 +16,21 @@ authors = [
 ]
 keywords = ["hexdoc"]
 requires-python = ">=3.12"
-version = "1.0.2.1.20.1.1.0"
+dynamic = ["version"]
 dependencies = [
     "hexdoc-hexcasting~=0.11.3.1.0",
 ]
+
+# project version（跟随 gradle.properties 的 mod_version）
+# 注意：本仓库 mod_version 格式为 "fabric-1.20.1+<版本>fix#<n>"，
+# regex 提取其中的数字版本并拼上 MC 版本；若改格式需同步改 regex
+
+[tool.hatch.version]
+scheme = "gradle"
+source = "gradle-properties"
+py-path = "doc/src/hexdoc_miehex/__version__.py"
+key = "mod_version"
+gradle-version-regex = { regex='^fabric-1\.20\.1\+([0-9.]+).*$', repl='\1.1.20.1' }
 
 [project.urls]
 Homepage = "https://github.com/xm1221/miehex_for_bigpackage"
@@ -29,9 +41,11 @@ Source = "https://github.com/xm1221/miehex_for_bigpackage"
 [tool.hatch.build]
 only-include = [
     "doc/src/hexdoc_miehex",
+    "gradle.properties",
 ]
 artifacts = [
     "/doc/src/hexdoc_miehex/_export/generated",
+    "/doc/src/hexdoc_miehex/__gradle_version__.py",
 ]
 
 [tool.hatch.build.targets.wheel]
