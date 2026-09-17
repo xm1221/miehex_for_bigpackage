@@ -48,3 +48,5 @@ __gradle_version__.py
 .venv/
 __pycache__/
 *.egg-info/
+
+dist/
