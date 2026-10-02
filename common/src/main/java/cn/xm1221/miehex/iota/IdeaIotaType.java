@@ -6,6 +6,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 
 public class IdeaIotaType extends IotaType<IdeaIota> {
@@ -37,7 +39,8 @@ public class IdeaIotaType extends IotaType<IdeaIota> {
         String raw = String.format("IDEA || {TYPE:%s HP:%.0f SPD:%.1f DMG:%.1f ARM:%.1f}",
                 entityTypeId,maxHealth,movementSpeed,attackDamage,armor);
                 String sga = SgaUtils.toStandardGalactic(raw);
-        return Component.literal(sga).withStyle(ChatFormatting.WHITE);
+        var style = Style.EMPTY.withFont(ResourceLocation.tryBuild("minecraft","alt")).withColor(ChatFormatting.WHITE);
+        return Component.literal(sga).withStyle(style);
     }
 
     @Override

@@ -71,28 +71,25 @@ HexDummy 的 `minecraft.gradle.kts` 已把 `src/main/java` 同时挂为 Kotlin �
 
 ### 5.2 为 HexCasting 0.11.3 → 0.11.4 做的适配（编译期真实错误）
 
-1. `CastingEnvironment.getUsableStacks()` / `getPrimaryStacks()` 在 0.11.4 是 **public abstract**，
-   `MobCastEnv` 的两个 override 需由 `protected` 改为 `public`。
-2. `caster.damageSources().source(ResourceKey)` 中 **`DamageSources.source(...)` 是 Minecraft 私有方法**
-   （HexMod 自己靠 access widener 放宽）。改为走公共路径：
+1. `ActionRegistryHelper.register` 原先用 `ResourceLocation.tryParse(id)` 做校验：无命名空间的 id 会被
+   默默解析成 `minecraft:xxx`，既拦不住任何错误，也让启动日志把 17 个图案全打成了 `minecraft:` 命名空间。
+   已改为只接受裸路径（含 `:` 直接报错），日志改用真正注册用的 `nsid`，现在打印 `miehex:quine` 等。
+2. `MobCastEnv` / `MobMishapEnv` 曾报两类错误：`CastingEnvironment.getUsableStacks()` /
+   `getPrimaryStacks()` 在 0.11.4 是 **public abstract**（override 不能是 protected）；
+   `DamageSources.source(ResourceKey)` 是 Minecraft **私有**方法（HexMod 自身靠 access widener 放宽）。
+   经与用户确认，这两个类已不再使用，**直接删除**，上述适配点随之消失。
 
-   ```java
-   var overcastType = mobCaster.level().registryAccess()
-           .registryOrThrow(Registries.DAMAGE_TYPE)
-           .getHolderOrThrow(HexDamageTypes.OVERCAST);
-   Mishap.trulyHurt(mobCaster, new DamageSource(overcastType), mobCaster.getMaxHealth() * healthProportion);
-   ```
-
-### 5.3 顺带修掉的一个隐藏 bug
-
-`MobMishapEnv` 原先所有方法都引用 **父类字段 `caster`**，而构造时 `super(level, null)` 把它传成了 `null`
-—— 也就是说 `yeetHeldItemsTowards` / `dropHeldItems` / `damage` / `drown` 一旦被调用就会 NPE。
-已统一改为使用本类的 `mobCaster`。这是从 Fabric 版本带过来的既有问题，不是本次重构引入的。
-
-### 5.4 删除的模板 demo
+### 5.4 删除的模板 demo 与失效代码
 
 `OpCongratulate.kt`、`MiehexActions.kt`、`Miehex.serverConfig` demo、`ExampleMixin`、示例 client 源集、`dummy_great_spells.json5` / `dummy_spells.json5` 等。
+另删除已确认不再使用的 `api/casting/MobCastEnv.java` 与 `api/casting/MobMishapEnv.java`。
 `MiehexActionTags` 保留但条目数组置空（模板 demo 里那条 per-world 大招已随 demo 删除）。
+
+### 5.4.1 IdeaIota 显示字体
+
+`IdeaIotaType.display` 原先直接用 `ChatFormatting.WHITE`，现按 `EnchantIotaType.display` 的写法改用
+`Style.EMPTY.withFont(ResourceLocation.tryBuild("minecraft","alt")).withColor(ChatFormatting.WHITE)`
+（SGA 文本内容不变，仅换字体与样式载体）。
 
 ### 5.5 mixin 配置
 
