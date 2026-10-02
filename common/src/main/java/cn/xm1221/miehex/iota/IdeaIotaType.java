@@ -30,17 +30,16 @@ public class IdeaIotaType extends IotaType<IdeaIota> {
     public Component display(Tag tag) {
         CompoundTag ct = (CompoundTag) tag;
         String entityTypeId = ct.getString("entityTypeId");
-        double maxHealth = ct.getDouble("maxHealth");
+        /*double maxHealth = ct.getDouble("maxHealth");
         double movementSpeed = ct.getDouble("movementSpeed");
         double attackDamage = ct.getDouble("attackDamage");
-        double armor = ct.getDouble("armor");
+        double armor = ct.getDouble("armor");*/
 
         // 显示简洁信息，转换为大写 SGA
-        String raw = String.format("IDEA || {TYPE:%s HP:%.0f SPD:%.1f DMG:%.1f ARM:%.1f}",
-                entityTypeId,maxHealth,movementSpeed,attackDamage,armor);
-                String sga = SgaUtils.toStandardGalactic(raw);
+        String raw = "IDEA:"+entityTypeId+" GOD BLESS HEXCASTERS";
+                //String sga = SgaUtils.toStandardGalactic(raw);
         var style = Style.EMPTY.withFont(ResourceLocation.tryBuild("minecraft","alt")).withColor(ChatFormatting.WHITE);
-        return Component.literal(sga).withStyle(style);
+        return Component.literal(raw).withStyle(style);
     }
 
     @Override
