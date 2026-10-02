@@ -6,6 +6,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 
 public class EnchantIotaType extends IotaType<EnchantIota> {
@@ -26,9 +28,8 @@ public class EnchantIotaType extends IotaType<EnchantIota> {
         CompoundTag ct = (CompoundTag) tag;
         String id = ct.getString("id").split(":")[1];
         short lvl = ct.getShort("lvl");
-        String raw = (id +" level: "+ lvl).toUpperCase();
-        String sga = SgaUtils.toStandardGalactic(raw);
-        return Component.literal(sga).withStyle(ChatFormatting.GRAY);
+        var style = Style.EMPTY.withFont(ResourceLocation.tryBuild("minecraft","alt")).withColor(ChatFormatting.GRAY);
+        return Component.literal(id+" ").withStyle(style).append(Component.translatable("enchantment.level."+lvl));
     }
 
     @Override
