@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+# https://copier.readthedocs.io/en/stable/updating/#never-change-the-answers-file-manually
+_commit: v2.2.4
+_src_path: C:\Users\Administrator\Documents\GitHub\hexdummy
+advanced: false
+description: miehex (big package) addon for Hex Casting.
+display_name: miehex
+github_repo: miehex_for_bigpackage
+github_user: xm1221
+java_package: cn.xm1221.miehex
+mappings_name: Mojmap
+minecraft_version_in_mod_version: true
+mit_license: true
+mod_version: 1.0.2+0.11.4
+modid: miehex

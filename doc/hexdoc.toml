@@ -3,7 +3,12 @@ book = "hexcasting:thehexbook"
 
 resource_dirs = [  # top takes priority
     "resources",
-    "../src/main/resources",
+    "{$_common.src}/main/resources",
+    { path="{$_common.src}/generated/resources", required=false },
+    "{$_fabric.src}/main/resources",
+    { path="{$_fabric.src}/generated/resources", required=false },
+    "{$_forge.src}/main/resources",
+    { path="{$_forge.src}/generated/resources", required=false },
     { modid="hexcasting" },
     { modid="minecraft" },
     { modid="hexdoc" },
@@ -11,7 +16,7 @@ resource_dirs = [  # top takes priority
 export_dir = "src/hexdoc_miehex/_export/generated"
 
 [template]
-icon = "../src/main/resources/assets/miehex/icon.png"
+icon = "{$_common.src}/main/resources/assets/miehex/icon.png"
 include = [
     "miehex",
     "hexcasting",
@@ -25,9 +30,28 @@ show_landing_text = false
 
 [extra.hexcasting]
 # NOTE: "!Raw" means "don't apply variable interpolation to this value"
-# Java-style registration: ActionRegistryHelper.register("name","angles", HexDir.XXX, ...)
-_pattern_regex = { "!Raw"='register\("(?P<name>[^"]+)","(?P<signature>[qweasd]+)",\s*HexDir\.(?P<startdir>\w+)' }
+_pattern_regex = { "!Raw"='make\("(?P<name>[^"]+)",\s*HexDir\.(?P<startdir>\w+),\s*"(?P<signature>[qweasd]+)"' }
 
 [[extra.hexcasting.pattern_stubs]]
-path = "../src/main/java/cn/xm1221/miehex/registry/ActionRegisry.java"
-regex = "{^_pattern_regex}"
+# 本模组不用 HexDummy 的 registrar，图案集中在 ActionRegisry 里以
+# ActionRegistryHelper.register(name, signature, HexDir.X, action) 的形式登记，
+# 所以这里指到该文件并用对应的正则抽取图案。
+path = "{$_common.java}/registry/ActionRegisry.java"
+regex = { "!Raw"='register\("(?P<name>[^"]+)",\s*"(?P<signature>[qweasd]+)",\s*HexDir\.(?P<startdir>\w+)' }
+
+# platforms
+
+[_common]
+src = "../common/src"
+java = "{src}/main/java/cn/xm1221/miehex"
+kotlin = "{src}/main/kotlin/cn/xm1221/miehex"
+
+[_fabric]
+src = "../fabric/src"
+java = "{src}/main/java/cn/xm1221/miehex/fabric"
+kotlin = "{src}/main/kotlin/cn/xm1221/miehex/fabric"
+
+[_forge]
+src = "../forge/src"
+java = "{src}/main/java/cn/xm1221/miehex/forge"
+kotlin = "{src}/main/kotlin/cn/xm1221/miehex/forge"

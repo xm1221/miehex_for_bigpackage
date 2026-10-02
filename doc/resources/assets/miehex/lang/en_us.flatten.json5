@@ -1,0 +1,8 @@
+{
+  hexdoc: {
+    miehex: {
+      title: "miehex Book",
+      description: "miehex (big package) addon for Hex Casting.",
+    },
+  }
+}

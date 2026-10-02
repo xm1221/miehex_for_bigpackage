@@ -11,11 +11,8 @@ from typing_extensions import override
 
 import hexdoc_miehex
 
-# 静态版本（不依赖 hatch-gradle-version / __gradle_version__.py）
-MOD_ID = "miehex"
-MOD_VERSION = "1.0.2"
-FULL_VERSION = "1.0.2.1.0"
-PY_VERSION = "1.0"
+from .__gradle_version__ import FULL_VERSION, MINECRAFT_VERSION, MOD_ID, MOD_VERSION
+from .__version__ import PY_VERSION
 
 
 class MiehexPlugin(ModPluginImpl):
@@ -39,7 +36,7 @@ class MiehexModPlugin(ModPluginWithBook):
     @property
     @override
     def mod_version(self) -> str:
-        return MOD_VERSION
+        return f"{MOD_VERSION}+{MINECRAFT_VERSION}"
 
     @property
     @override

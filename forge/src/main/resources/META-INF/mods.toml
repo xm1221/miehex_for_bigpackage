@@ -1,0 +1,63 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[${versions.kotlin_forge},)"
+license = "MIT"
+
+[[mods]]
+modId = "miehex"
+version = "${version}"
+displayName = "miehex"
+logoFile = "assets/miehex/icon.png"
+authors = "xm1221"
+description = "miehex (big package) addon for Hex Casting."
+
+[[dependencies.miehex]]
+modId = "forge"
+mandatory = true
+versionRange = "[${versions.forge_dependency},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.miehex]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${versions.minecraft},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.miehex]]
+modId = "architectury"
+mandatory = true
+versionRange = "[${versions.architectury},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.miehex]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[${versions.cloth_config},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.miehex]]
+modId = "hexcasting"
+mandatory = true
+versionRange = "[${versions.hexcasting},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.miehex]]
+# MixinExtras is required at runtime for @WrapMethod (used by CastingVMMixin / MixinDatagenMain)
+modId = "mixinextras"
+mandatory = true
+versionRange = "[0.5.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.miehex]]
+# hexparse is an optional integration, not a hard requirement
+modId = "hexparse"
+mandatory = false
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
+
