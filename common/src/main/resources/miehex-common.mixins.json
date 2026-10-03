@@ -8,7 +8,6 @@
   ],
   "mixins": [
     "CastingVMMixin",
-    "LivingEntityAttributeMixin",
     "MixinDatagenMain"
   ],
   "plugin": "cn.xm1221.miehex.mixin.MiehexMixinConfigPlugin",

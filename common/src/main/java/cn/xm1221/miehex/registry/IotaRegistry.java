@@ -1,6 +1,6 @@
 package cn.xm1221.miehex.registry;
 
-import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
+import at.petrak.hexcasting.common.lib.HexRegistries;
 import cn.xm1221.miehex.MieHexMod;
 import cn.xm1221.miehex.MiehexRegisterer;
 import cn.xm1221.miehex.iota.*;
@@ -30,7 +30,7 @@ public class IotaRegistry {
 
     private static void register(MiehexRegisterer registerer, String path, Object type) {
         registerer.register(
-                HexIotaTypes.REGISTRY.key().location(),
+                HexRegistries.IOTA_TYPE.location(),
                 new ResourceLocation(MieHexMod.MOD_ID, path),
                 type
         );

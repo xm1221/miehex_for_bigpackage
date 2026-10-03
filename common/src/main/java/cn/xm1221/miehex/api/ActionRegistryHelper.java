@@ -4,7 +4,7 @@ import at.petrak.hexcasting.api.casting.ActionRegistryEntry;
 import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
-import at.petrak.hexcasting.common.lib.hex.HexActions;
+import at.petrak.hexcasting.common.lib.HexRegistries;
 import cn.xm1221.miehex.MieHexMod;
 import cn.xm1221.miehex.MiehexRegisterer;
 import net.minecraft.resources.ResourceLocation;
@@ -44,8 +44,10 @@ public class ActionRegistryHelper {
             throw new IllegalArgumentException("无效的动作 ID: " + id);
         }
         ActionRegistryEntry entry = new ActionRegistryEntry(pattern, action);
-        // 不能直接 Registry.register(HexActions.REGISTRY, ...) —— Forge 在 mod 构造阶段已锁死注册表。
-        registerer.register(HexActions.REGISTRY.key().location(), nsid, entry);
+        // 只取注册表的 ResourceKey，**不要**写 HexActions.REGISTRY —— 触碰 HexActions
+        // 会触发它的类初始化，连带 HexItems.<clinit> 去 new Item(...)，而构造 Item 需要
+        // createIntrusiveHolder，注册表已冻结时会抛 "Registry is already frozen"。
+        registerer.register(HexRegistries.ACTION.location(), nsid, entry);
         System.out.println("Registered action: " + nsid);
     }
 }
