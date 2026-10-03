@@ -15,6 +15,7 @@ class ForgeMiehex {
             addListener(ForgeMiehexDatagen::init)
             addListener(ForgeMiehexServer::init)
         }
-        MieHexMod.init()
+        // 注册必须等 RegisterEvent，见 ForgeMiehexRegistry 的注释。
+        ForgeMiehexRegistry.init()
     }
 }
