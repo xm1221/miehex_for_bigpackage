@@ -1,7 +1,6 @@
 package cn.xm1221.miehex.iota;
 
 import at.petrak.hexcasting.api.casting.iota.IotaType;
-import cn.xm1221.miehex.util.SgaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -35,9 +34,8 @@ public class IdeaIotaType extends IotaType<IdeaIota> {
         double attackDamage = ct.getDouble("attackDamage");
         double armor = ct.getDouble("armor");*/
 
-        // 显示简洁信息，转换为大写 SGA
+        // 显示简洁信息；用 minecraft:alt 字体呈现银河字母效果，不再自行做字符映射
         String raw = "IDEA:"+entityTypeId+" GOD BLESS HEXCASTERS";
-                //String sga = SgaUtils.toStandardGalactic(raw);
         var style = Style.EMPTY.withFont(ResourceLocation.tryBuild("minecraft","alt")).withColor(ChatFormatting.WHITE);
         return Component.literal(raw).withStyle(style);
     }

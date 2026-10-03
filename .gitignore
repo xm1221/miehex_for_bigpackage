@@ -32,6 +32,10 @@ bin/
 
 run/
 
+# datagen 的增量缓存（内含生成文件的哈希，随机器/任务顺序变化）。
+# CI 的 datagen 校验步骤也用 "*/src/generated/resources/.cache/*" 排除它，故不纳入版本控制。
+*/src/generated/resources/.cache/
+
 # java
 
 hs_err_*.log

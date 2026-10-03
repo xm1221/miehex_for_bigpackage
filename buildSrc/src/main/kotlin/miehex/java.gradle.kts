@@ -83,6 +83,11 @@ tasks {
     javadoc {
         options {
             this as StandardJavadocDocletOptions
+            // 必须显式指定编码：javadoc 默认按平台编码读源码（本机 GBK），
+            // 而源码是 UTF-8 且带中文注释/Unicode 字面量，会报"编码 GBK 的不可映射字符"。
+            // compileJava 已经设了 encoding，javadoc 需要另设。
+            encoding = "UTF-8"
+            charSet = "UTF-8"
             addStringOption("Xdoclint:none", "-quiet")
         }
     }
@@ -93,5 +98,12 @@ tasks {
 
     processTestResources {
         exclude(".cache")
+    }
+
+    // Datagen 往 src/generated/resources 写文件，而 sourcesJar 会读该目录（数据产物留在源集里）。
+    // 不声明依赖的话，Gradle 8 会在同一次调用里同时跑 build 与 runAllDatagen 时报
+    // "uses this output of task ... without declaring an explicit or implicit dependency"。
+    tasks.matching { it.name == "sourcesJar" }.configureEach {
+        dependsOn(tasks.matching { it.name == "runDatagen" })
     }
 }

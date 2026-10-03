@@ -1,7 +1,6 @@
 package cn.xm1221.miehex.iota;
 
 import at.petrak.hexcasting.api.casting.iota.IotaType;
-import cn.xm1221.miehex.util.SgaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
