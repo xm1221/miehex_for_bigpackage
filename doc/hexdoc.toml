@@ -30,14 +30,17 @@ show_landing_text = false
 
 [extra.hexcasting]
 # NOTE: "!Raw" means "don't apply variable interpolation to this value"
-_pattern_regex = { "!Raw"='register\("(?P<name>[^"]+)",\s*"(?P<signature>[qweasd]+)",\s*HexDir\.(?P<startdir>\w+)' }
+#
+# 第一个参数是平台的 MiehexRegisterer（重构后为走 Forge 的 RegisterEvent 而加），
+# 因此不能用 register\("... 这种「引号紧跟左括号」的写法，要用 [^,]+ 跳过它。
+_pattern_regex = { "!Raw"='''ActionRegistryHelper\.register\(\s*[^,]+,\s*"(?P<name>[^"]+)",\s*"(?P<signature>[qweasd]+)",\s*HexDir\.(?P<startdir>\w+)''' }
 
 [[extra.hexcasting.pattern_stubs]]
 # 本模组不用 HexDummy 的 registrar，图案集中在 ActionRegisry 里以
-# ActionRegistryHelper.register(name, signature, HexDir.X, action) 的形式登记，
+# ActionRegistryHelper.register(registerer, name, signature, HexDir.X, action) 的形式登记，
 # 所以这里指到该文件并用对应的正则抽取图案。
 path = "{$_common.java}/registry/ActionRegisry.java"
-regex = { "!Raw"='register\("(?P<name>[^"]+)",\s*"(?P<signature>[qweasd]+)",\s*HexDir\.(?P<startdir>\w+)' }
+regex = { "!Raw"='''ActionRegistryHelper\.register\(\s*[^,]+,\s*"(?P<name>[^"]+)",\s*"(?P<signature>[qweasd]+)",\s*HexDir\.(?P<startdir>\w+)''' }
 
 # platforms
 
