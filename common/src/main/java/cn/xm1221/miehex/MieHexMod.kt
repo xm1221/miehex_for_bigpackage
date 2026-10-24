@@ -1,5 +1,6 @@
 package cn.xm1221.miehex
 
+import cn.xm1221.miehex.hook.MiehexCastingVMHooks
 import net.minecraft.resources.ResourceLocation
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
@@ -21,6 +22,12 @@ object MieHexMod {
 
     @JvmStatic
     fun id(path: String): ResourceLocation = ResourceLocation(MOD_ID, path)
+
+    /** 双端公共初始化；由各平台入口（FabricMiehex / ForgeMiehex）调用。 */
+    @JvmStatic
+    fun init() {
+        MiehexCastingVMHooks.init()
+    }
 
     /** 仅客户端调用；由各平台入口的客户端初始化钩子转发。 */
     @JvmStatic

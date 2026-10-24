@@ -46,6 +46,13 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.miehex]]
+modId = "mielib"
+mandatory = true
+versionRange = "[0.0.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.miehex]]
 # hexparse is an optional integration, not a hard requirement
 modId = "hexparse"
 mandatory = false

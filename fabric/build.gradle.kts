@@ -44,6 +44,7 @@ miehexModDependencies {
     requires(curseforge = "hexcasting", modrinth = "hex-casting")
     requires("fabric-api")
     requires("fabric-language-kotlin")
+    requires("mielib")
     optional("modmenu")
 }
 
@@ -81,4 +82,6 @@ dependencies {
         exclude(group = "net.fabricmc.fabric-api")
     }
     modImplementation(libs.modMenu)
+    modImplementation(libs.mielib.fabric) { isTransitive = false }
+    include(libs.mielib.fabric) { isTransitive = false }
 }

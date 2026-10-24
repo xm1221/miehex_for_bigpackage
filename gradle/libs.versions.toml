@@ -26,6 +26,7 @@ forge-dependency = "47" # for mods.toml
 
 # mods
 
+mielib = "0.0.1+1.20.1-SNAPSHOT"
 hexcasting = "0.11.4"
 paucal = "0.6.0-pre-118"
 pkpcpbp = "0.2.0-pre-95"
@@ -73,6 +74,10 @@ fabric-loader = { module="net.fabricmc:fabric-loader", version.ref="fabric-loade
 fabric-api    = { module="net.fabricmc.fabric-api:fabric-api", version.ref="fabric-api" }
 
 forge = { module="net.minecraftforge:forge", version.ref="forge" }
+
+mielib-common = { module="cn.xm1221.MieLib:mielib-common", version.ref="mielib" }
+mielib-fabric = { module="cn.xm1221.MieLib:mielib-fabric", version.ref="mielib" }
+mielib-forge  = { module="cn.xm1221.MieLib:mielib-forge", version.ref="mielib" }
 
 hexcasting-common = { module="at.petra-k.hexcasting:hexcasting-common-1.20.1", version.ref="hexcasting" }
 hexcasting-fabric = { module="at.petra-k.hexcasting:hexcasting-fabric-1.20.1", version.ref="hexcasting" }

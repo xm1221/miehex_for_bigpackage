@@ -7,7 +7,6 @@
   "client": [
   ],
   "mixins": [
-    "CastingVMMixin",
     "MixinDatagenMain"
   ],
   "plugin": "cn.xm1221.miehex.mixin.MiehexMixinConfigPlugin",

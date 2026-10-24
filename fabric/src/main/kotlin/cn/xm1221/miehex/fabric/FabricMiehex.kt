@@ -1,5 +1,6 @@
 package cn.xm1221.miehex.fabric
 
+import cn.xm1221.miehex.MieHexMod
 import cn.xm1221.miehex.MiehexRegisterer
 import cn.xm1221.miehex.MiehexRegistry
 import net.fabricmc.api.ModInitializer
@@ -8,6 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries
 
 object FabricMiehex : ModInitializer {
     override fun onInitialize() {
+        MieHexMod.init()
         // Fabric 没有注册事件，且 mod 初始化早于注册表冻结，直接写即可。
         MiehexRegistry.registerAll(MiehexRegisterer(::fabricRegister))
     }
