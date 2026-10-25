@@ -32,5 +32,6 @@ object MiehexRegistry {
     fun registerAll(registerer: MiehexRegisterer) {
         IotaRegistry.init(registerer)
         ActionRegisry.init(registerer)
+        MiehexWorkers.init()
     }
 }

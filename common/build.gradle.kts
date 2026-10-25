@@ -17,6 +17,8 @@ dependencies {
 
     modApi(libs.hexcasting.common)
 
+    modApi(libs.mielib.common) { isTransitive = false }
+
     modApi(libs.clothConfig.common)
 
     libs.mixinExtras.common.also {
