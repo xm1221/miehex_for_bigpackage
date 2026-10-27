@@ -48,16 +48,8 @@ subprojects {
         maven { url = "https://mvn.devos.one/snapshots/" }
         flatDir { dir "libs/" }
         flatDir { dir "../libs/" }
-        // Group is exclusive so a 1.20.1 MieLib coordinate cannot be pulled from the
-        // public repo by accident. The vendored repo is checked first: 1.21.1 artifacts
-        // are not on https://xm1221.github.io/maven yet.
+        // Only this repo publishes cn.xm1221.MieLib, including 1.21.1 artifacts.
         exclusiveContent {
-            forRepository {
-                maven {
-                    name = "mielibVendor"
-                    url = rootProject.file("common/libs/maven").toURI()
-                }
-            }
             forRepository {
                 maven {
                     name = "xm1221Maven"
